@@ -90,11 +90,10 @@
   };
 
 
-  chocolate.update=function(data,url){
+  chocolate.update=function(data){
     var apiUrl =chocolateUrl+"/api/";
-    apiUrl=apiUrl+"?page_url="+originalUrl;
     
-    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
+    reqdata={"id":data["id"],"x":data["x"],"y":data["y"],"page_url":originalUrl};
     
     $.ajax({
     async:true,
