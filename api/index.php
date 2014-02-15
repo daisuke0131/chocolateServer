@@ -73,7 +73,7 @@ echo json_encode($result);
 }else{
 
 }
-header('Access-Control-Allow-Origin: *');
+//header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
 
