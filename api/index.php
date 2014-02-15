@@ -36,7 +36,7 @@ if (!$db_access)
 {
   die("can't access the table");
 }
-
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json; charset=UTF-8');
 
 $result = array();

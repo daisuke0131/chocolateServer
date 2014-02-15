@@ -2,6 +2,8 @@
 
 require_once 'login.php';
 
+include("register_image.php");
+
 print("start");
 // param id, x, y
 if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
@@ -19,7 +21,6 @@ if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['
 }else{
   return;
 }
-
 
 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
 
