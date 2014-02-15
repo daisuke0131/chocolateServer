@@ -65,6 +65,7 @@ $result['ret'] = "ok";
 header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json; charset=UTF-8');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
 echo json_encode($result);
 mysql_close();
