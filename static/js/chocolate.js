@@ -95,7 +95,7 @@
     //apiUrl=apiUrl+"?page_url="+originalUrl;
     var apiUrl =chocolateUrl+"/php/update.php"
 
-    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
+    reqdata={"id":data["id"],"x":String(data["x"]),"y":String(data["y"])};
     reqjson=JSON.stringify(reqdata);
     console.log(reqjson);
     //$.support.cors = true;
