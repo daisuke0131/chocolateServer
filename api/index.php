@@ -47,6 +47,7 @@ while ($res = mysql_fetch_object($db_access))
   $result['data'][] = $res;
 }
 
+header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json; charset=UTF-8');
 echo json_encode($result);
 
@@ -68,12 +69,13 @@ header('Content-type: text/html; charset=UTF-8');
 $result = array();
 $result['ret'] = "ok";
 
+
 header("Access-Control-Allow-Headers: *");
 echo json_encode($result);
 }else{
 
 }
-//header('Access-Control-Allow-Origin: *');
+
 header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
 
