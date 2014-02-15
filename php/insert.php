@@ -4,7 +4,7 @@ require_once 'login.php';
 
 //include("register_image.php");
 
-print("start");
+print("start2");
 // param id, x, y
 if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
   //$id=$_GET['id'];
