@@ -24,7 +24,7 @@ if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['
 
 $uploaddir = '/var/www/html/chocolate/img/';
     
-    print("test2");
+print("test2");
     if ($_FILES["image"]["error"] > 0)
     {
         echo "Error: " . $_FILES["image"]["error"] . "<br>";
