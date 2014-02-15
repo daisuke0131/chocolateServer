@@ -23,11 +23,19 @@ if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) ){
 }
 */
 
-$json=file_get_contents('php://input');
-$obj = json_decode($json, true);
-$id = $obj["id"];
-$x = $obj["x"];
-$y = $obj["y"];
+if (isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) ){
+  $id=$_GET['id'];
+  $x=$_GET['x'];
+  $y=$_GET['y'];
+}
+else
+{
+  $json=file_get_contents('php://input');
+  $obj = json_decode($json, true);
+  $id = $obj["id"];
+  $x = $obj["x"];
+  $y = $obj["y"];
+}
 
 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
 
