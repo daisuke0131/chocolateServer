@@ -58,7 +58,7 @@ header('Content-type: text/html; charset=UTF-8');
   print("post start");
   $json=http_get_request_body ();
   $obj = json_decode($json, true);
-
+  print("post 2");
   $sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$obj ["page_url"],$obj ["id"] );
   $db_access = mysql_query($sql);
   if (!$db_access)
@@ -66,7 +66,7 @@ header('Content-type: text/html; charset=UTF-8');
     die("can't access the table");
   }
 
-
+print("post 3");
 $result = array();
 $result['ret'] = "ok";
 
