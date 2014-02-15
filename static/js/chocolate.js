@@ -22,7 +22,26 @@
         console.log(json);
 
         for(choco in data){
-            console.log(data[choco]["id"]);
+            //console.log(data[choco]["id"]);
+            var id = data[choco]["id"];
+            var imageUrl = data[choco]["image_file_name"];
+            var x = data[choco]["x"];
+            var y = data[choco]["y"];
+            var chocoid = "#chocolate"+id;
+            var $div=$("<div />");
+            $div.attr("id",chocoid);
+            $div.css('position', 'absolute'); 
+            $div.css("top",y+"px");
+            $div.css("left",x+"px");
+
+            var $img = $("<img />");
+            $img.attr("src","img/"+imageUrl);
+            $div.append($img);
+            $('body').append($div);
+
+            $( chocoid).draggable({
+            });
+
         }
 
         //要素つくってdraggableを付ける
