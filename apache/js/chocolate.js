@@ -19,6 +19,24 @@
       },
       error: function( jqXHR, textStatus, errorThrown ) {
         alert("get error "+"status:"+textStatus +"error: "+errorThrown);
+        
+        $('body').css('position', 'relative'); 
+
+        var $div=$("<div />");
+        $div.attr("id","testid");
+        $div.css('position', 'absolute'); 
+        
+        $div.css("top","100px");
+        $div.css("left","100px");
+        var $img = $("<img />");
+        $img.attr("src","img/kuma.jpg");
+        $div.append($img);
+        $('body').append($div);
+
+        $( "#testid" ).draggable({
+        });
+
+
       },
       timeout:50000,
     });
