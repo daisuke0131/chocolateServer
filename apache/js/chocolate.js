@@ -1,8 +1,9 @@
 //api
 (function(){
   var chocolate={};
-  chocolate.getChocoList=function(){
-    var apiUrl =chocolateUrl+"/api/index.php"
+  chocolate.getList=function(url){
+    var apiUrl =chocolateUrl+"/api/"
+    apiUrl=apiUrl+"?page_url="+url;
     
     $.ajax({
     async:true,
@@ -16,6 +17,11 @@
         },
     success: function(json) {
         alert("get success");
+        //json parse
+
+        //要素つくってdraggableを付ける
+
+
       },
       error: function( jqXHR, textStatus, errorThrown ) {
         alert("get error "+"status:"+textStatus +"error: "+errorThrown);
@@ -73,20 +79,26 @@
   };
 
   window.chocolate=chocolate;
-  window.chocolateUrl="http://www1034up.sakura.ne.jp:8080/chocolate";
+  window.chocolateUrl="http://www1034up.sakura.ne.jp/chocolate";
 
 }());
 
 
 //画面初期ロード時のロジックを記述
 $(function() {
-  chocolate.getChocoList();
+  var url="http://www.google.com";
+  chocolate.getList(url);
+  
 
   $( "#kuma" ).draggable({
           stop: function( event, ui ) {
             
             console.log(ui.position.top);
             console.log(ui.position.left);
+            data={};
+            data["x"]=ui.position.left;
+            data["y"]=ui.position.top;
+            chocolate.update();
 
 
           }
