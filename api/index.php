@@ -48,6 +48,7 @@ while ($res = mysql_fetch_object($db_access))
 }
 
 header('Content-type: application/json; charset=UTF-8');
+echo json_encode($result);
 
 }elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
 header('Content-type: text/html; charset=UTF-8');
@@ -68,13 +69,14 @@ $result = array();
 $result['ret'] = "ok";
 
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+echo json_encode($result);
 }else{
 
 }
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
-echo json_encode($result);
+
 mysql_close();
 ?>
 
