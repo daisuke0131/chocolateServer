@@ -47,6 +47,7 @@ while ($res = mysql_fetch_object($db_access))
   $result['data'][] = $res;
 }
 }else{
+  /*
   $json=http_get_request_body ()
   $obj = json_decode($json, true);
 
@@ -57,7 +58,7 @@ while ($res = mysql_fetch_object($db_access))
     die("can't access the table");
   }
 
-
+*/
 $result = array();
 $result['ret'] = "ok";
 }
