@@ -27,9 +27,9 @@
             var imageUrl = data[choco]["image_file_name"];
             var x = data[choco]["x"];
             var y = data[choco]["y"];
-            var chocoid = "#chocolate"+id;
+            var chocoid = "chocolate"+id;
             var $div=$("<div />");
-            $div.attr("id",chocoid);
+            $div.attr("id","#"+chocoid);
             $div.css('position', 'absolute'); 
             $div.css("top",y+"px");
             $div.css("left",x+"px");
@@ -41,7 +41,7 @@
             $('body').append($div);
 
             console.log(chocoid);
-            $(chocoid).draggable();
+            $("#"+chocoid).draggable();
 
         }
 
