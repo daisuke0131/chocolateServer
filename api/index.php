@@ -56,7 +56,7 @@ echo json_encode($result);
 header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   print("post start");
-  $json=http_get_request_body ();
+  $json=http_get_request_body();
     print($json);
   $obj = json_decode($json, true);
   print("post 2");
