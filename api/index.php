@@ -48,9 +48,9 @@ while ($res = mysql_fetch_object($db_access))
 }
 }else{
   
-  $json=http_get_request_body ()
+  $json=http_get_request_body ();
   $obj = json_decode($json, true);
-/*
+
   $sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$page_url,$obj ["id"] );
   $db_access = mysql_query($sql);
   if (!$db_access)
@@ -58,7 +58,7 @@ while ($res = mysql_fetch_object($db_access))
     die("can't access the table");
   }
 
-*/
+
 $result = array();
 $result['ret'] = "ok";
 }
