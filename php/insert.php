@@ -100,6 +100,7 @@ $result = array();
 $result['id'] = $res['max(id)'];
 
 mysql_close($db_access);
+header("Location: " . $page_url);
 echo json_encode($result);
 ?>
 
