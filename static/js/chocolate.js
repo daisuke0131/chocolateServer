@@ -18,6 +18,7 @@
     success: function(json) {
         alert("get success");
         //json parse
+        console.log(json);
 
         for(choco in json){
             console.log(json[choco]["id"]);
