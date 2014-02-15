@@ -10,21 +10,10 @@ print("[" . $_POST['url'] . "]");
 
 
 // param id, x, y
-//if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
-if( isset($_GET['form_url'])){
-
-  //$id=$_GET['id'];
-  //$x=$_GET['x'];
-  //$y=$_GET['y'];
-  //$image_file_name=$_GET['image_file_name'];
+if( isset($_GET['url'])){
   $page_url=$_GET['form_url'];
-//}else if(isset($_POST['id']) && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['image_file_name']) && isset($_POST['page_url'])){
-}else if( isset($_POST['form_url'])){
-  //$id=$_POST["id"];
-  //$x=$_POST["x"];
-  //$y=$_POST["y"];
-  //$image_file_name=$_POST["image_file_name"];
-  $page_url=$_POST["form_url"];
+}else if( isset($_POST['url'])){
+  $page_url=$_POST["url"];
 }else{
   print(" no palameter!");
   return;
