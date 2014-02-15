@@ -56,7 +56,8 @@ echo json_encode($result);
 header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   print("post start");
-  $json=$_POST["data"];
+  //$json=$_POST["data"];
+  $json=file_get_contents('php://input');
     print($json);
   $obj = json_decode($json, true);
   $id = $obj["id"];
