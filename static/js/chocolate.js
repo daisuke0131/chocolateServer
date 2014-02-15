@@ -108,7 +108,7 @@
                 //xhrObj.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
         },
     success: function(json) {
-        alert("test");
+        console.log(json);
       },
       error: function( jqXHR, textStatus, errorThrown ) {
         alert("send error "+"status:"+textStatus +"error: "+errorThrown);
