@@ -96,7 +96,8 @@
     var apiUrl =chocolateUrl+"/php/update.php"
 
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
-    $.support.cors = true;
+    console.log(reqdata);
+    //$.support.cors = true;
     $.ajax({
     async:true,
     type:'POST',
