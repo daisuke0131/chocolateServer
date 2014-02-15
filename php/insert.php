@@ -68,7 +68,11 @@ else
     //     $contents = contents . $line . 
     //   }
     //   fclose($file_handle);
+  
+    //print($contents);
+    //move_uploaded_file( $tmp_name, "../img/" . md5($contents) . "." . $ext ) );
     
+
 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
 
 if (!$db_server)
