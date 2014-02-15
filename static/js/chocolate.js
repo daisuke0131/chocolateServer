@@ -97,6 +97,7 @@
 
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     reqjson=JSON.stringify(reqdata);
+    console.log(reqjson);
     //$.support.cors = true;
     $.ajax({
     async:true,
