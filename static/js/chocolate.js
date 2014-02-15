@@ -95,8 +95,8 @@
     //apiUrl=apiUrl+"?page_url="+originalUrl;
     var apiUrl =chocolateUrl+"/php/update.php"
 
-    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
-    console.log(reqdata);
+    reqdata="{¥"id¥":data["id"],¥"x¥":data["x"],¥"y¥":data["y"]}";
+    
     //$.support.cors = true;
     $.ajax({
     async:true,
