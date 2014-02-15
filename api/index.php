@@ -2,6 +2,7 @@
 
 require_once 'login.php';
 // param id, x, yi
+print("start");
 $page_url = '';
 if (isset($_GET['page_url']))
 {
