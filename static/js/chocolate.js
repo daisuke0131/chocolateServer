@@ -96,7 +96,7 @@
     var apiUrl =chocolateUrl+"/php/update.php"
 
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
-    reqjson=JSON.stringify(readata);
+    reqjson=JSON.stringify(reqdata);
     //$.support.cors = true;
     $.ajax({
     async:true,
