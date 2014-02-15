@@ -47,10 +47,10 @@ while ($res = mysql_fetch_object($db_access))
   $result['data'][] = $res;
 }
 }else{
-  /*
+  
   $json=http_get_request_body ()
   $obj = json_decode($json, true);
-
+/*
   $sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$page_url,$obj ["id"] );
   $db_access = mysql_query($sql);
   if (!$db_access)
