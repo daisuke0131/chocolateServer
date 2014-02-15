@@ -54,7 +54,7 @@ echo json_encode($result);
 }elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
   print("options start");
   header('Access-Control-Allow-Origin: *');
-  header("Access-Control-Allow-Headers: *");
+  header("Access-Control-Allow-Headers: Content-Type");
   header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   print("post start");
