@@ -42,22 +42,22 @@ else
     echo "name    :" . $name;
 }
 
-    //拡張子取得
-    //  $finfo = new finfo(FILEINFO_MIME_TYPE);
-    //  if (false === $ext = array_search
-    //  (
-    //     $finfo->file($_FILES['image']['tmp_name']),
-    //       array(
-    //         'jpg' => 'image/jpeg',
-    //         'png' => 'image/png',
-    //         'gif' => 'image/gif',
-    //       ),
-    //       true
-    //      ))
-    //    {
-    //      echo 'not supported';
-    //    }
-    //    print("ext: " . $ext);
+//拡張子取得
+$finfo = new finfo(FILEINFO_MIME_TYPE);
+if (false === $ext = array_search
+(
+  $finfo->file($_FILES['image']['tmp_name']),
+  array(
+    'jpg' => 'image/jpeg',
+    'png' => 'image/png',
+    'gif' => 'image/gif',
+  ),
+ true
+))
+{
+  echo 'not supported';
+}
+print("ext: " . $ext);
     
     
     // ファイル内容取得
