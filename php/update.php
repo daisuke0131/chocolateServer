@@ -2,10 +2,13 @@
 
 require_once 'login.php';
 
+
 header('Access-Control-Allow-Origin: *');
 header('Content-type: text/plain; charset=UTF-8');
 
 // param id, x, y 
+
+/*
 if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) ){
   $id=$_GET['id'];
   $x=$_GET['x'];
@@ -17,6 +20,13 @@ if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) ){
 }else{
   return;
 }
+*/
+
+$json=file_get_contents('php://input');
+$obj = json_decode($json, true);
+$id = $obj["id"];
+$x = $obj["x"];
+$y = $obj["y"];
 
 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
 

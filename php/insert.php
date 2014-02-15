@@ -3,8 +3,9 @@
 require_once 'login.php';
 
 //include("register_image.php");
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json; charset=UTF-8');
 
-print("[" . $_POST['url'] . "]");
 
 // param id, x, y
 if( isset($_GET['url'])){
@@ -49,8 +50,9 @@ if (false === $ext = array_search
 ))
 {
   echo 'not supported';
+  
+  return;
 }
-print("ext: " . $ext);
     
     
 // ファイル内容取得
@@ -63,7 +65,6 @@ print("ext: " . $ext);
 //fclose($file_handle);
 
 $image_file_name=md5_file($tmp_name) . "." .$ext;
-print($image_file_name);
 move_uploaded_file( $tmp_name, "../img/" . $image_file_name );
 
 // INSERT    
@@ -77,13 +78,24 @@ mysql_select_db($db_database) or die("can't select database");
 
 // insert
 $sql = "INSERT INTO IMAGES (x,y,image_file_name,page_url) VALUES(0,0,'" . $image_file_name . "','" . $page_url . "');";
-print($sql);
 $db_access = mysql_query($sql);
 if (!$db_access)
 {
   die("can't access the table");
 }
 
+$sql = "SELECT max(id) FROM IMAGES";
+$db_access = mysql_query($sql);
+if (!$db_access)
+{
+  die("can't access the table");
+}
+
+
+$result = array();
+$result['id'] = array();
+
 mysql_close($db_access);
+echo json_encode($result);
 ?>
 
