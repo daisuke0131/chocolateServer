@@ -29,7 +29,7 @@
             var y = data[choco]["y"];
             var chocoid = "chocolate"+id;
             var $div=$("<div />");
-            $div.attr("id","#"+chocoid);
+            $div.attr("id",chocoid);
             $div.css('position', 'absolute'); 
             $div.css("top",y+"px");
             $div.css("left",x+"px");
