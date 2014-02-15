@@ -1,7 +1,0 @@
-<form action="http://www1034up.sakura.ne.jp/chocolate/php/register_image.php">
-<input type="hidden" name="url" value="location.href">
-<input type="file" name="image"></input>
-<input type="submit" value="“o˜^"></input>
-</form>
-
-
