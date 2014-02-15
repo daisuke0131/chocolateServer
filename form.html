@@ -1,0 +1,14 @@
+<html>
+
+<body>
+<form method='POST' enctype="multipart/form-data" action="http://www1034up.sakura.ne.jp/chocolate/php/register_image.php">
+<input type="hidden" name="url" id='form_url' value=''>
+<input type="file" name="image"></input>
+<input type="submit" value="登録"></input>
+</form>
+
+<script>
+document.getElementById('form_url').value = location.href;
+</script>
+</body>
+</html>
