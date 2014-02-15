@@ -5,7 +5,7 @@ require_once 'login.php';
 
 header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Content-Type");
-header('Content-type: text/plain; charset=UTF-8');
+header('Content-type: application/json; charset=UTF-8');
 
 $result = array();
 $result['error'] = array();
