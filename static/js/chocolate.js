@@ -19,6 +19,10 @@
         alert("get success");
         //json parse
 
+        for(choco in json){
+            console.log(choco["id"]);
+        }
+
         //要素つくってdraggableを付ける
 
 
@@ -50,7 +54,7 @@
 
 
   chocolate.update=function(data){
-    var apiUrl =serverUrl+"/api/index.php"
+    var apiUrl =chocolateUrl+"/api/index.php"
     
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     
