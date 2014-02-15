@@ -91,10 +91,11 @@
 
 
   chocolate.update=function(data){
-    var apiUrl =chocolateUrl+"/api/";
-    apiUrl=apiUrl+"?page_url="+originalUrl;
+    //var apiUrl =chocolateUrl+"/api/";
+    //apiUrl=apiUrl+"?page_url="+originalUrl;
+    var apiUrl =chocolateUrl+"/php/update.php"
 
-    reqdata={"id":data["id"],"x":data["x"],"y":data["y"],"page_url":originalUrl};
+    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     $.support.cors = true;
     $.ajax({
     async:true,
