@@ -2,7 +2,7 @@
 (function(){
   var chocolate={};
   chocolate.getList=function(url){
-    var apiUrl =chocolateUrl+"/api/"
+    var apiUrl =chocolateUrl+"/api/";
     apiUrl=apiUrl+"?page_url="+url;
     
     $.ajax({
@@ -41,7 +41,20 @@
             $('body').append($div);
 
             console.log(chocoid);
-            $("#"+chocoid).draggable();
+            $("#"+chocoid).draggable({
+                     stop: function( event, ui ) {
+            
+                    console.log(ui.position.top);
+                    console.log(ui.position.left);
+                    data={};
+                    data["id"]=this.id;
+                    data["x"]=ui.position.left;
+                    data["y"]=ui.position.top;
+                    chocolate.update(data);
+          }
+
+
+          });
 
         }
 
@@ -76,7 +89,8 @@
 
 
   chocolate.update=function(data){
-    var apiUrl =chocolateUrl+"/api/index.php"
+    var apiUrl =chocolateUrl+"/api/";
+    apiUrl=apiUrl+"?page_url="+url;
     
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     
@@ -101,7 +115,6 @@
       },
       timeout:50000,
     });
-
   };
 
   window.chocolate=chocolate;
@@ -118,7 +131,7 @@ $(function() {
 
   $( "#kuma" ).draggable({
           stop: function( event, ui ) {
-            
+            id = this.id;
             console.log(ui.position.top);
             console.log(ui.position.left);
             data={};
