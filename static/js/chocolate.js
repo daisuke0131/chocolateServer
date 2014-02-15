@@ -22,7 +22,7 @@
         console.log(json);
 
         for(choco in data){
-            console.log(json[choco]["id"]);
+            console.log(data[choco]["id"]);
         }
 
         //要素つくってdraggableを付ける
