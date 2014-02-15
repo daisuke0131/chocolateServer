@@ -97,7 +97,7 @@ $res=mysql_fetch_assoc($db_access);
 
 
 $result = array();
-$result['id'] = $res;
+$result['id'] = $res['max(id)'];
 
 mysql_close($db_access);
 echo json_encode($result);
