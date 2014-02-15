@@ -52,6 +52,7 @@ header('Content-type: application/json; charset=UTF-8');
 echo json_encode($result);
 
 }elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
+  print("options start");
 header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   print("post start");
