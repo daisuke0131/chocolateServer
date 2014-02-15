@@ -34,8 +34,9 @@
             $div.css("top",y+"px");
             $div.css("left",x+"px");
 
+            var imgpath = chocolateUrl+"/img/"+imageUrl;
             var $img = $("<img />");
-            $img.attr("src","img/"+imageUrl);
+            $img.attr("src",imgpath);
             $div.append($img);
             $('body').append($div);
 
