@@ -40,8 +40,7 @@
             $div.append($img);
             $('body').append($div);
 
-            $( chocoid).draggable({
-            });
+            $( chocoid).draggable();
 
         }
 
