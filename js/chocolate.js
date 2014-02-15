@@ -12,6 +12,7 @@ module.exports = {
 	chocolatify : function(body){
 	    $ = cheerio.load(body);
 		$('body').prepend(formbar);
+		body = $.html();
 		return body;
 	}
 }
