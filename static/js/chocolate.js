@@ -95,8 +95,8 @@
     //apiUrl=apiUrl+"?page_url="+originalUrl;
     var apiUrl =chocolateUrl+"/php/update.php"
 
-    reqdata="{¥"id¥":data["id"],¥"x¥":data["x"],¥"y¥":data["y"]}";
-    
+    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
+    reqjson=JSON.stringify(readata);
     //$.support.cors = true;
     $.ajax({
     async:true,
@@ -106,7 +106,7 @@
     url:apiUrl,
     scriptCharset:'utf-8',
     contentType: 'application/json',
-    data:reqdata,
+    data:reqjson,
     dataType:'json',
     beforeSend: function(xhrObj){
                 //xhrObj.setRequestHeader("Content-Type" , "application/x-www-form-urlencoded");
