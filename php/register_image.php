@@ -16,7 +16,7 @@ else
     $tmp_name = $_FILES["image"]["tmp_name"];
     $name     = $_FILES["image"]["name"];
 
-    echo $name . ' - ' $tmp_name;
+    echo $name . ' - ' . $tmp_name;
 
     move_uploaded_file( $tmp_name, "../img/" . md5($name) );
   }
