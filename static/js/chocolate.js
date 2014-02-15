@@ -98,7 +98,7 @@ $(function() {
             data={};
             data["x"]=ui.position.left;
             data["y"]=ui.position.top;
-            chocolate.update();
+            chocolate.update(data);
 
 
           }
