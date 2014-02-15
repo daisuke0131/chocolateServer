@@ -91,7 +91,7 @@
 
 //画面初期ロード時のロジックを記述
 $(function() {
-  var url="http://www.google.com";
+  var url="http://www.google.com/";
   chocolate.getList(url);
   
 
