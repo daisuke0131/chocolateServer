@@ -124,7 +124,7 @@ $(function() {
             data={};
             data["x"]=ui.position.left;
             data["y"]=ui.position.top;
-            chocolate.update(data);
+            //chocolate.update(data);
 
 
           }
