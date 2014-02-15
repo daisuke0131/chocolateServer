@@ -17,10 +17,11 @@
         },
     success: function(json) {
         alert("get success");
+        data=json["data"];
         //json parse
         console.log(json);
 
-        for(choco in json){
+        for(choco in data){
             console.log(json[choco]["id"]);
         }
 
