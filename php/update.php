@@ -4,6 +4,7 @@ require_once 'login.php';
 
 
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Content-Type");
 header('Content-type: text/plain; charset=UTF-8');
 
 // param id, x, y 

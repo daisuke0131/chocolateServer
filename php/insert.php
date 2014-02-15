@@ -4,6 +4,7 @@ require_once 'login.php';
 
 //include("register_image.php");
 header('Access-Control-Allow-Origin: *');
+header("Access-Control-Allow-Headers: Content-Type");
 header('Content-type: application/json; charset=UTF-8');
 
 
@@ -85,16 +86,18 @@ if (!$db_access)
   die("can't access the table");
 }
 
-$sql = "SELECT max(id) FROM IMAGES";
+$sql = "SELECT max(id) FROM IMAGES WHERE image_file_name = '" . $image_file_name . "'";
 $db_access = mysql_query($sql);
 if (!$db_access)
 {
   die("can't access the table");
 }
+$res=mysql_fetch_assoc($db_access);
+
 
 
 $result = array();
-$result['id'] = array();
+$result['id'] = $res;
 
 mysql_close($db_access);
 echo json_encode($result);
