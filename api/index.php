@@ -28,7 +28,7 @@ if (!$db_server)
 
 mysql_select_db($db_database) or die("can't select database");
 
-if($_SERVER["REQUEST_METHOD"] != "POST"){
+if($_SERVER["REQUEST_METHOD"] == "GET"){
 
 $sql_string = 'SELECT id,x,y,image_file_name FROM IMAGES WHERE page_url = \'' . $page_url . '\'';
 
@@ -46,7 +46,14 @@ while ($res = mysql_fetch_object($db_access))
 {
   $result['data'][] = $res;
 }
-}else{
+
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json; charset=UTF-8');
+
+}elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
+header('Access-Control-Allow-Origin: *');
+header('Content-type: text/html; charset=UTF-8');
+}elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   
   $json=http_get_request_body ();
   $obj = json_decode($json, true);
@@ -61,10 +68,13 @@ while ($res = mysql_fetch_object($db_access))
 
 $result = array();
 $result['ret'] = "ok";
-}
+
 header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json; charset=UTF-8');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+}else{
+
+}
+
 header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
 echo json_encode($result);
