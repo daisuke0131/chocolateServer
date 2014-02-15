@@ -6,19 +6,23 @@ require_once 'login.php';
 
 print("start2");
 // param id, x, y
-if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
+//if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
+if( isset($_GET['form_url'])){
+
   //$id=$_GET['id'];
-  $x=$_GET['x'];
-  $y=$_GET['y'];
-  $image_file_name=$_GET['image_file_name'];
-  $page_url=$_GET['page_url'];
-}else if(isset($_POST['id']) && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['image_file_name']) && isset($_POST['page_url'])){
+  //$x=$_GET['x'];
+  //$y=$_GET['y'];
+  //$image_file_name=$_GET['image_file_name'];
+  $page_url=$_GET['form_url'];
+//}else if(isset($_POST['id']) && isset($_POST['x']) && isset($_POST['y']) && isset($_POST['image_file_name']) && isset($_POST['page_url'])){
+}else if( isset($_POST['form_url'])){
   //$id=$_POST["id"];
-  $x=$_POST["x"];
-  $y=$_POST["y"];
-  $image_file_name=$_POST["image_file_name"];
-  $page_url=$_POST["page_url"];
+  //$x=$_POST["x"];
+  //$y=$_POST["y"];
+  //$image_file_name=$_POST["image_file_name"];
+  $page_url=$_POST["form_url"];
 }else{
+  print(" no palameter!");
   return;
 }
 
