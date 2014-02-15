@@ -3,8 +3,9 @@
 require_once 'login.php';
 
 //include("register_image.php");
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json; charset=UTF-8');
 
-print("[" . $_POST['url'] . "]");
 
 // param id, x, y
 if( isset($_GET['url'])){
@@ -20,19 +21,20 @@ $uploaddir = '/var/www/html/chocolate/img/';
     
 if ($_FILES["image"]["error"] > 0)
 {
-    echo "Error: " . $_FILES["image"]["error"] . "<br>";
+//    echo "Error: " . $_FILES["image"]["error"] . "<br>";
+  return;
 }
 else
 {
-    echo "Upload: " . $_FILES["image"]["name"] . "<br>";
-    echo "Type: " . $_FILES["image"]["type"] . "<br>";
-    echo "Size: " . ($_FILES["image"]["size"] / 1024) . " kB<br>";
-    echo "Stored in: " . $_FILES["image"]["tmp_name"];
+//    echo "Upload: " . $_FILES["image"]["name"] . "<br>";
+//    echo "Type: " . $_FILES["image"]["type"] . "<br>";
+//    echo "Size: " . ($_FILES["image"]["size"] / 1024) . " kB<br>";
+//    echo "Stored in: " . $_FILES["image"]["tmp_name"];
         
     $tmp_name = $_FILES["image"]["tmp_name"];
     $name     = $_FILES["image"]["name"];
-    echo "tmp_name:" . $tmp_name;
-    echo "name    :" . $name;
+//    echo "tmp_name:" . $tmp_name;
+//    echo "name    :" . $name;
 }
 
 //拡張子取得
@@ -49,8 +51,9 @@ if (false === $ext = array_search
 ))
 {
   echo 'not supported';
+  
+  return;
 }
-print("ext: " . $ext);
     
     
 // ファイル内容取得
@@ -63,7 +66,6 @@ print("ext: " . $ext);
 //fclose($file_handle);
 
 $image_file_name=md5_file($tmp_name) . "." .$ext;
-print($image_file_name);
 move_uploaded_file( $tmp_name, "../img/" . $image_file_name );
 
 // INSERT    
@@ -77,13 +79,24 @@ mysql_select_db($db_database) or die("can't select database");
 
 // insert
 $sql = "INSERT INTO IMAGES (x,y,image_file_name,page_url) VALUES(0,0,'" . $image_file_name . "','" . $page_url . "');";
-print($sql);
 $db_access = mysql_query($sql);
 if (!$db_access)
 {
   die("can't access the table");
 }
 
+$sql = "SELECT max(id) FROM IMAGES";
+$db_access = mysql_query($sql);
+if (!$db_access)
+{
+  die("can't access the table");
+}
+
+
+$result = array();
+$result['id'] = array();
+
 mysql_close($db_access);
+echo json_encode($result);
 ?>
 
