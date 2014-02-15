@@ -38,8 +38,6 @@ if (!$db_access)
 {
   die("can't access the table");
 }
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json; charset=UTF-8');
 
 $result = array();
 $result['data'] = array();
@@ -58,13 +56,15 @@ while ($res = mysql_fetch_object($db_access))
   {
     die("can't access the table");
   }
-header('Access-Control-Allow-Origin: *');
-header('Content-type: application/json; charset=UTF-8');
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
 
 $result = array();
 $result['ret'] = "ok";
 }
+header('Access-Control-Allow-Origin: *');
+header('Content-type: application/json; charset=UTF-8');
+header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
+
 echo json_encode($result);
 mysql_close();
 ?>
