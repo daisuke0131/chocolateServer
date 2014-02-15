@@ -1,9 +1,9 @@
 //api
 (function(){
   var chocolate={};
-  chocolate.getList=function(url){
+  chocolate.getList=function(){
     var apiUrl =chocolateUrl+"/api/";
-    apiUrl=apiUrl+"?page_url="+url;
+    apiUrl=apiUrl+"?page_url="+originalUrl;
     
     $.ajax({
     async:true,
@@ -88,9 +88,9 @@
   };
 
 
-  chocolate.update=function(data){
+  chocolate.update=function(data,url){
     var apiUrl =chocolateUrl+"/api/";
-    apiUrl=apiUrl+"?page_url="+url;
+    apiUrl=apiUrl+"?page_url="+originalUrl;
     
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     
@@ -117,6 +117,10 @@
     });
   };
 
+  chocolate.setUrl=function(url){
+    window.originalUrl=url;
+  };
+
   window.chocolate=chocolate;
   window.chocolateUrl="http://www1034up.sakura.ne.jp/chocolate";
 
@@ -126,7 +130,9 @@
 //画面初期ロード時のロジックを記述
 $(function() {
   var url="http://www.google.com/";
-  chocolate.getList(url);
+  chocolate.setUrl(url);
+  chocolate.getList();
+
   
 
   $( "#kuma" ).draggable({
