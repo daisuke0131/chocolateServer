@@ -4,10 +4,7 @@ require_once 'login.php';
 
 //include("register_image.php");
 
-print("start2");
-print("[" . $_POST['form_url'] . "]");
 print("[" . $_POST['url'] . "]");
-
 
 // param id, x, y
 if( isset($_GET['url'])){
@@ -21,7 +18,6 @@ if( isset($_GET['url'])){
 
 $uploaddir = '/var/www/html/chocolate/img/';
     
-print("test2");
 if ($_FILES["image"]["error"] > 0)
 {
     echo "Error: " . $_FILES["image"]["error"] . "<br>";
@@ -57,19 +53,20 @@ if (false === $ext = array_search
 print("ext: " . $ext);
     
     
-    // ファイル内容取得
-    //   $file_handle = fopen($tmp_name, "r");
-    //   $contents = "";
-    //   while (!feof($file_handle)) {
-    //     $line = fgets($file_handle);
-    //     $contents = contents . $line . 
-    //   }
-    //   fclose($file_handle);
-  
-    //print($contents);
-    //move_uploaded_file( $tmp_name, "../img/" . md5($contents) . "." . $ext ) );
-    
+// ファイル内容取得
+//$file_handle = fopen($tmp_name, "r");
+//$contents = "";
+//while (!feof($file_handle)) {
+//  $line = fgets($file_handle);
+//  $contents = contents . $line . 
+//}
+//fclose($file_handle);
 
+$image_file_name=md5_file($tmp_name) . "." .$ext;
+print($image_file_name);
+move_uploaded_file( $tmp_name, "../img/" . $image_file_name );
+
+// INSERT    
 $db_server = mysql_connect($db_hostname, $db_username, $db_password);
 
 if (!$db_server)
@@ -79,7 +76,7 @@ if (!$db_server)
 mysql_select_db($db_database) or die("can't select database");
 
 // insert
-$sql = "INSERT INTO IMAGES (x,y,image_file_name,page_url) VALUES(" . $x . "," . $y . ",'" . $image_file_name . "','" . $page_url . "');";
+$sql = "INSERT INTO IMAGES (x,y,image_file_name,page_url) VALUES(0,0,'" . $image_file_name . "','" . $page_url . "');";
 print($sql);
 $db_access = mysql_query($sql);
 if (!$db_access)
