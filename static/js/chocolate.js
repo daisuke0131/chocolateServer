@@ -100,6 +100,7 @@
     async:true,
     type:'POST',
     //cache:false,
+    Origin:'local',
     url:apiUrl,
     scriptCharset:'utf-8',
     contentType: 'application/json',
