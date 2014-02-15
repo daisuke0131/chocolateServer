@@ -59,8 +59,13 @@ header('Content-type: text/html; charset=UTF-8');
   $json=$_POST["data"];
     print($json);
   $obj = json_decode($json, true);
+  $id = $obj["id"];
+  $x = $obj["x"];
+  $y = $obj["y"];
+
   print("post 2");
-  $sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$obj ["page_url"],$obj ["id"] );
+  //$sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$obj ["page_url"],$obj ["id"] );
+  $sql = "UPDATE IMAGES set x=" . $x . " , y=" . $y . " WHERE id = " .  $id . ";";
   $db_access = mysql_query($sql);
   if (!$db_access)
   {
