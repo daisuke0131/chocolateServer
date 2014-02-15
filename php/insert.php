@@ -5,6 +5,10 @@ require_once 'login.php';
 //include("register_image.php");
 
 print("start2");
+print("[" . $_POST['form_url'] . "]");
+print("[" . $_POST['url'] . "]");
+
+
 // param id, x, y
 //if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) && isset($_GET['image_file_name']) && isset($_GET['page_url'])){
 if( isset($_GET['form_url'])){
