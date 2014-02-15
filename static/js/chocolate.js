@@ -43,11 +43,13 @@
             console.log(chocoid);
             $("#"+chocoid).draggable({
                      stop: function( event, ui ) {
+                      chocoid=this.id;
+                      cid=chocoid.replace("chocolate","");
             
                     console.log(ui.position.top);
                     console.log(ui.position.left);
                     data={};
-                    data["id"]=this.id;
+                    data["id"]=cid;
                     data["x"]=ui.position.left;
                     data["y"]=ui.position.top;
                     chocolate.update(data);
