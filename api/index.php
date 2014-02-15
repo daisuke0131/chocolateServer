@@ -57,6 +57,7 @@ header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   print("post start");
   $json=http_get_request_body ();
+    print($json);
   $obj = json_decode($json, true);
   print("post 2");
   $sql = sprintf("UPDATE IMAGES SET x = %s ,y =%s WHERE page_url = %s,id=%s", $obj ["x"],$obj ["y"] ,$obj ["page_url"],$obj ["id"] );
