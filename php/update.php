@@ -2,7 +2,9 @@
 
 require_once 'login.php';
 
-print("start");
+header('Access-Control-Allow-Origin: *');
+header('Content-type: text/plain; charset=UTF-8');
+
 // param id, x, y 
 if(isset($_GET['id']) && isset($_GET['x']) && isset($_GET['y']) ){
   $id=$_GET['id'];
@@ -26,11 +28,12 @@ mysql_select_db($db_database) or die("can't select database");
 
 // insert
 $sql = "UPDATE IMAGES set x=" . $x . " , y=" . $y . " WHERE id = " .  $id . ";";
-print($sql);
 $db_access = mysql_query($sql);
 if (!$db_access)
 {
   die("can't access the table");
 }
 mysql_close($db_access);
+
+echo 'done';
 ?>
