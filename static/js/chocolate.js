@@ -91,9 +91,9 @@
 
 
   chocolate.update=function(data){
-    var apiUrl =chocolateUrl+"/api/";
+    var apiUrl =chocolateUrl+"/php/update.php";
     
-    reqdata={"id":data["id"],"x":data["x"],"y":data["y"],"page_url":originalUrl};
+    reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     
     $.ajax({
     async:true,
