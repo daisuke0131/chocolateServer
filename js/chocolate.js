@@ -10,9 +10,13 @@ var formbar = "aaaaaaa";
 module.exports = {
 
 	chocolatify : function(body){
+		console.log("a1");
+		console.log(body);
 	    $ = cheerio.load(body);
 		$('body').prepend(formbar);
 		body = $.html();
+		console.log("a2");
+		console.log(body);
 		return body;
 	}
 }
