@@ -95,7 +95,7 @@
     apiUrl=apiUrl+"?page_url="+originalUrl;
 
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"],"page_url":originalUrl};
-    
+    $.support.cors = true;
     $.ajax({
     async:true,
     type:'POST',
