@@ -79,7 +79,7 @@ print("post 3");
 $result = array();
 $result['ret'] = "ok";
 
-header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Origin: http://localhost');
 header("Access-Control-Allow-Headers: *");
 header('Content-type: application/json; charset=UTF-8');
 echo json_encode($result);
