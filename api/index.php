@@ -2,7 +2,6 @@
 
 require_once 'login.php';
 // param id, x, yi
-print("start");
 $page_url = '';
 if (isset($_GET['page_url']))
 {
@@ -55,7 +54,7 @@ echo json_encode($result);
 }elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
 header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
-  
+  print("post start");
   $json=http_get_request_body ();
   $obj = json_decode($json, true);
 
