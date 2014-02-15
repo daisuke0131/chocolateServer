@@ -93,7 +93,7 @@
   chocolate.update=function(data){
     //var apiUrl =chocolateUrl+"/api/";
     //apiUrl=apiUrl+"?page_url="+originalUrl;
-    var apiUrl =chocolateUrl+"/phpupdate.php"
+    var apiUrl =chocolateUrl+"/php/update.php"
 
     reqdata={"id":data["id"],"x":data["x"],"y":data["y"]};
     $.support.cors = true;
