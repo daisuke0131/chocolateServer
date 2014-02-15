@@ -11,7 +11,7 @@ else
 {
   if (isset($_POST['page_url']))
   {
-    //$page_url=$_POST['page_url'];
+    $page_url=$_POST['page_url'];
   }
   else
   {
@@ -70,7 +70,7 @@ header('Content-type: text/html; charset=UTF-8');
 $result = array();
 $result['ret'] = "ok";
 
-
+header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: *");
 echo json_encode($result);
 }else{
