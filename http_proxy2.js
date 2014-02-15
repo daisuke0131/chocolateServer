@@ -2,7 +2,7 @@
 var http = require('http');
 var url  = require('url');
 var net  = require('net');
-var chocolate = require("./chocolate.js");
+var chocolate = require("./js/chocolate.js");
 
 var HTTP_PORT = process.argv[2] || 8081;  // internal proxy server port
 var PROXY_URL = process.argv[3] || null;  // external proxy server URL
