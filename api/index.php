@@ -47,11 +47,9 @@ while ($res = mysql_fetch_object($db_access))
   $result['data'][] = $res;
 }
 
-header('Access-Control-Allow-Origin: *');
 header('Content-type: application/json; charset=UTF-8');
 
 }elseif($_SERVER["REQUEST_METHOD"] == "OPTIONS"){
-header('Access-Control-Allow-Origin: *');
 header('Content-type: text/html; charset=UTF-8');
 }elseif($_SERVER["REQUEST_METHOD"] == "POST"){
   
@@ -69,12 +67,11 @@ header('Content-type: text/html; charset=UTF-8');
 $result = array();
 $result['ret'] = "ok";
 
-header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 }else{
 
 }
-
+header('Access-Control-Allow-Origin: *');
 header("Access-Control-Allow-Methods: PUT,DELETE,POST,GET,OPTIONS");
 
 echo json_encode($result);
