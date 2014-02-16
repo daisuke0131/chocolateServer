@@ -3,7 +3,7 @@ var fs = require("fs");
 var headerJquery = "<script src='//code.jquery.com/jquery-1.10.2.min.js'></script>";
 var headerJqueryUi = "<script src='//code.jquery.com/ui/1.10.4/jquery-ui.js'></script>";
 //var headerJqueryUi = "<script src='http://www1034up.sakura.ne.jp/chocolate/static/js/jquery-ui.js'></script>";
-var headerChocolate = "<script src='http://www1034up.sakura.ne.jp/chocolate/static/js/chocolate.js'></script>";
+var headerChocolate = "<script src='http://www1034up.sakura.ne.jp/chocolate/static/js/chocolate2.js'></script>";
 
 //var formbar = "aaaaaaa";	
 //var formbar = "<form method='POST' enctype='multipart/form-data' action='http://www1034up.sakura.ne.jp/chocolate/php/register_image.php'><input type='hidden' name='url' id='form_url' value=''><input type='file' name='image'></input><input type='submit'></input></form><script>document.getElementById('form_url').value = location.href;</script>";
