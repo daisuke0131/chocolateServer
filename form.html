@@ -2,20 +2,21 @@
 
 <body>
 <form method='POST' enctype="multipart/form-data" action="http://www1034up.sakura.ne.jp/chocolate/php/insert.php">
-<!--<input type="hidden" name="url" id='form_url' value='test'>-->
+<input type="hidden" name="url" id='form_url' value='test'>
 <input type="file" name="image"></input>
 
 <br>
 
 <b> URL：</b>
-<input type="text" name="url" value="http://www.google.com/"></input>
+<input type="text" id="textid" value="http://www.google.com/"></input>
 
 <br>
 <input type="submit" value="登録"></input>
 </form>
 
 <script>
-document.getElementById('form_url').value = location.href;
+//document.getElementById('form_url').value = location.href;
+document.getElementById('form_url').value = document.getElementById('textid').value;
 </script>
 </body>
 </html>
