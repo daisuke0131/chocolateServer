@@ -118,7 +118,7 @@
         $input.attr('type','hidden');
         $input.attr('name','url');
         $input.attr('id','form_url');
-        $input.attr('value','http://www1034up.sakura.ne.jp/chocolate/web/');
+        $input.attr('value',window.originalUrl);
         $form.append($input);
 
         var $input2 =$('<input />');
