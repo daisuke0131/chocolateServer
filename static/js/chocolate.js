@@ -22,6 +22,7 @@
 
         for(choco in data){
             //console.log(data[choco]["id"]);
+            $('body').css('position','relative');
             var id = data[choco]["id"];
             var imageUrl = data[choco]["image_file_name"];
             var x = data[choco]["x"];
@@ -106,6 +107,37 @@
     window.originalUrl=url;
   };
 
+  chocolate.setForm=function(url){
+        var $form = $('<form />');
+        $form.attr('method','POST');
+        $form.attr('enctype','multipart/form-data');
+        $form.attr('action','http://www1034up.sakura.ne.jp/chocolate/php/insert.php');
+        $form.attr('align','right');
+
+        var $input =$('<input />');
+        $input.attr('type','hidden');
+        $input.attr('name','url');
+        $input.attr('id','form_url');
+        $input.attr('value','http://www1034up.sakura.ne.jp/chocolate/web/');
+        $form.append($input);
+
+        var $input2 =$('<input />');
+        $input2.attr('type','file');
+        $input2.attr('name','image');
+        $form.append($input2);
+
+        var $input3 =$('<input />');
+        $input3.attr('type','submit');
+        $input3.attr('value','登録');
+        $form.append($input3);
+
+        $('body').prepend($form);
+
+
+
+
+  };
+
   window.chocolate=chocolate;
   window.chocolateUrl="http://www1034up.sakura.ne.jp/chocolate";
 
@@ -117,6 +149,7 @@ $(function() {
   //var url="http://www.google.com/";
   var url = window.location.protocol+"//"+window.location.host + window.location.pathname;
   console.log(url);
+  chocolate.setForm();
   chocolate.setUrl(url);
   chocolate.getList();
 
