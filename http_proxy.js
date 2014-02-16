@@ -22,15 +22,18 @@ var httpServer = http.createServer(function onCliReq(cliReq, cliRes) {
     var options = {host: x.hostname, port: x.port || 80, path: x.path,
                    method: cliReq.method, headers: cliReq.headers};
   var svrReq = http.request(options, function onSvrRes(svrRes) {
-//    cliRes.writeHead(svrRes.statusCode, svrRes.headers);
-//    svrRes.pipe(cliRes);
+    if(!(endsWith(cliReq.url, ".html") || endsWith(cliReq.url, "/"))){
+	console.log("not html :: " + cliReq.url);
+    cliRes.writeHead(svrRes.statusCode, svrRes.headers);
+    svrRes.pipe(cliRes);
+    } else { 
+	console.log("html :: " + cliReq.url);
     var svrResBody = "";
     svrRes.on("data",function(chunk){
 	svrResBody += chunk;
     });
     svrRes.on("end",function(chunk){
 	svrResBody += chunk;
-	
 	var svrResBodyChanged = chocolate.chocolatify(svrResBody);
 //	console.log(svrResBodyChanged);
 	var cliResHeaders = svrRes.headers;
@@ -40,7 +43,7 @@ var httpServer = http.createServer(function onCliReq(cliReq, cliRes) {
 	cliRes.write(svrResBodyChanged);
 	cliRes.end();
     });
-
+    }
     console.log("a");
   });
 /*    var cliReqBody = "";
@@ -113,8 +116,8 @@ function countbytes(str) {
     var r = 0;
     for (var i = 0; i < str.length; i++) {
         var c = str.charCodeAt(i);
-        // Shift_JIS: 0x0 ï½ž 0x80, 0xa0 , 0xa1 ï½ž 0xdf , 0xfd ï½ž 0xff
-        // Unicode : 0x0 ï½ž 0x80, 0xf8f0, 0xff61 ï½ž 0xff9f, 0xf8f1 ï½ž 0xf8f3
+        // Shift_JIS: 0x0 EE0x80, 0xa0 , 0xa1 EE0xdf , 0xfd EE0xff
+        // Unicode : 0x0 EE0x80, 0xf8f0, 0xff61 EE0xff9f, 0xf8f1 EE0xf8f3
         if ( (c >= 0x0 && c < 0x81) || (c == 0xf8f0) || (c >= 0xff61 && c < 0xffa0) || (c >= 0xf8f1 && c < 0xf8f4)) {
             r += 1;
         } else {
@@ -122,4 +125,8 @@ function countbytes(str) {
         }
     }
     return r;
+}
+
+function endsWith(str, suffix) {
+    return str.indexOf(suffix, str.length - suffix.length) !== -1;
 }
