@@ -118,7 +118,7 @@
         $input.attr('type','hidden');
         $input.attr('name','url');
         $input.attr('id','form_url');
-        $input.attr('value','"'+window.originalUrl+'"');
+        $input.attr('value',window.originalUrl);
         $form.append($input);
 
         var $input2 =$('<input />');
@@ -149,8 +149,9 @@ $(function() {
   //var url="http://www.google.com/";
   var url = window.location.protocol+"//"+window.location.host + window.location.pathname;
   console.log(url);
-  chocolate.setForm();
+
   chocolate.setUrl(url);
+  chocolate.setForm();
   chocolate.getList();
 
   
