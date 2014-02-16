@@ -115,7 +115,7 @@
 //画面初期ロード時のロジックを記述
 $(function() {
   //var url="http://www.google.com/";
-  var url = window.location;
+  var url = window.location.host + window.location.pathname;
   console.log(url);
   chocolate.setUrl(url);
   chocolate.getList();
