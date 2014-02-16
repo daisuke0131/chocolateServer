@@ -22,6 +22,7 @@
 
         for(choco in data){
             //console.log(data[choco]["id"]);
+            $('body').css('position','relative');
             var id = data[choco]["id"];
             var imageUrl = data[choco]["image_file_name"];
             var x = data[choco]["x"];
