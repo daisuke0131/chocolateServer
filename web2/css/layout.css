@@ -1,0 +1,144 @@
+@charset "UTF-8";
+/* CSS Document */
+html{
+    color:#000;background:#FFF;
+}
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,
+pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{
+    margin:0;padding:0;
+}
+table{
+    border-collapse:collapse;border-spacing:0;
+}
+fieldset,img{ border:0; }
+address,caption,cite,code,dfn,em,strong,th,var{
+    font-style:normal;font-weight:normal;
+}
+li { list-style:none; } caption,th{ text-align:left; }
+h1,h2,h3,h4,h5,h6{
+    font-size:100%;font-weight:normal;
+}
+q:before,q:after{ content:''; }
+abbr,acronym{ border:0;font-variant:normal; }
+sup{ vertical-align:text-top; }
+sub{ vertical-align:text-bottom; }
+input,textarea,select{ font-family:inherit;font-size:inherit;font-weight:inherit; }
+input,textarea,select{ *font-size:100%; }
+legend{ color:#000; }
+
+
+/*レイアウト*/
+
+.clearfix:after {  
+visibility:hidden;
+height:0;
+display: block;
+font-size: 0;  
+content: " ";  
+clear: both;
+}  
+* html .clearfix             { zoom: 1; } 
+*:first-child+html .clearfix { zoom: 1; }
+
+body {
+	background-color:#EEE;
+	font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+}
+body p {
+	font-size:14px;
+	color:#444;
+	line-height:1.6em;
+}
+#wrapper {
+	padding-top:160px;
+	position:relative;
+}
+#bg_img01 {
+	position:absolute;
+	top:0;
+	left:0;
+}
+#bg_img02 {
+	position:absolute;
+	top:122px;
+	right:0;
+}
+#bg_img03 {
+	position:absolute;
+	top:524px;
+	left:0;
+}
+#bg_img04 {
+	position:absolute;
+	top:1053px;
+	right:0;
+}
+#bg_img05 {
+	position:absolute;
+	top:1314px;
+	left:0;
+}
+h1 {
+	margin:0 0 43px;
+	text-align:center;
+}
+h2 {
+	text-align:center;
+}
+.install_btn {
+	margin:48px auto 90px auto;
+	width:664px;
+	height:0;
+	overflow:hidden;
+	padding-top:80px;
+	background:url(../images/btn.png) no-repeat;
+}
+.install_btn:hover {
+	cursor:pointer;
+	background-position:0 -80px;
+}
+#read {
+	text-align:center;
+	font-size:14px;
+}
+.topic_box{
+	background:url(../images/topic_bg.png) repeat;
+	padding:40px 0 45px;
+	margin-bottom:70px;
+}
+#flow_box {
+	width:854px;
+	margin:53px auto 0;
+}
+#flow_box li {
+	width:236px;
+	float:left;
+	padding-right:73px;
+	background:url(../images/arrow.png) no-repeat 265px 117px;
+	position:relative;
+}
+#flow_box li .num {
+	position:absolute;
+	top:-14px;
+	left:-18px;
+}
+#flow_box li.fin,
+#ex_box li.fin {
+	background:none;
+	padding-right:0;	
+}
+#ex_box {
+	width:854px;
+	margin:25px auto 0;
+}
+#ex_box li {
+	width:236px;
+	float:left;
+	padding-right:73px;
+}
+#footer {
+	background:url(../images/topic_bg.png) repeat;
+	text-align:center;
+	padding:20px 0;
+	
+}
