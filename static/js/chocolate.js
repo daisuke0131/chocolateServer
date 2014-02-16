@@ -16,7 +16,6 @@
                 //xhrObj.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
         },
     success: function(json) {
-        alert("get success");
         data=json["data"];
         //json parse
         console.log(json);
@@ -60,30 +59,10 @@
 
         }
 
-        //要素つくってdraggableを付ける
-
 
       },
       error: function( jqXHR, textStatus, errorThrown ) {
-        alert("get error "+"status:"+textStatus +"error: "+errorThrown);
-        
-        $('body').css('position', 'relative'); 
-
-        var $div=$("<div />");
-        $div.attr("id","testid");
-        $div.css('position', 'absolute'); 
-        
-        $div.css("top","100px");
-        $div.css("left","100px");
-        var $img = $("<img />");
-        $img.attr("src","img/kuma.jpg");
-        $div.append($img);
-        $('body').append($div);
-
-        $( "#testid" ).draggable({
-        });
-
-
+        console.log("get list error");
       },
       timeout:50000,
     });
@@ -117,7 +96,7 @@
         console.log(json);
       },
       error: function( jqXHR, textStatus, errorThrown ) {
-        alert("send error "+"status:"+textStatus +"error: "+errorThrown);
+        console.log("update error");
       },
       timeout:50000,
     });
