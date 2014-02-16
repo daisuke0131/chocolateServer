@@ -112,7 +112,10 @@
         $form.attr('method','POST');
         $form.attr('enctype','multipart/form-data');
         $form.attr('action','http://www1034up.sakura.ne.jp/chocolate/php/insert.php');
-        $form.attr('align','right');
+
+        var $div = $('<div />');
+        $div.attr('align','right');
+
 
         var $input =$('<input />');
         $input.attr('type','hidden');
@@ -131,7 +134,8 @@
         $input3.attr('value','登録');
         $form.append($input3);
 
-        $('body').prepend($form);
+        $div.append($form);
+        $('body').prepend($div);
 
 
 
