@@ -22,7 +22,7 @@ var httpServer = http.createServer(function onCliReq(cliReq, cliRes) {
     var options = {host: x.hostname, port: x.port || 80, path: x.path,
                    method: cliReq.method, headers: cliReq.headers};
   var svrReq = http.request(options, function onSvrRes(svrRes) {
-    if(!(endsWith(cliReq.url, ".html") || endsWith(cliReq.url, "/"))){
+    if(!(endsWith(cliReq.url, ".html") || endsWith(cliReq.url, "/") || svrRes.headers["content-type"] == "text/html")){
 	console.log("not html :: " + cliReq.url);
     cliRes.writeHead(svrRes.statusCode, svrRes.headers);
     svrRes.pipe(cliRes);
