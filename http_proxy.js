@@ -2,6 +2,8 @@
 var http = require('http');
 var url  = require('url');
 var net  = require('net');
+var chocolate = require("./js/chocolate.js");
+
 var HTTP_PORT = process.argv[2] || 8080;  // internal proxy server port
 var PROXY_URL = process.argv[3] || null;  // external proxy server URL
 var PROXY_HOST = PROXY_URL ?  url.parse(PROXY_URL).hostname    : null;
@@ -20,9 +22,37 @@ var httpServer = http.createServer(function onCliReq(cliReq, cliRes) {
     var options = {host: x.hostname, port: x.port || 80, path: x.path,
                    method: cliReq.method, headers: cliReq.headers};
   var svrReq = http.request(options, function onSvrRes(svrRes) {
-    cliRes.writeHead(svrRes.statusCode, svrRes.headers);
-    svrRes.pipe(cliRes);
+//    cliRes.writeHead(svrRes.statusCode, svrRes.headers);
+//    svrRes.pipe(cliRes);
+    var svrResBody = "";
+    svrRes.on("data",function(chunk){
+	svrResBody += chunk;
+    });
+    svrRes.on("end",function(chunk){
+	svrResBody += chunk;
+	
+	var svrResBodyChanged = chocolate.chocolatify(svrResBody);
+//	console.log(svrResBodyChanged);
+	var cliResHeaders = svrRes.headers;
+	cliResHeaders['content-length'] = countbytes(svrResBodyChanged);
+	cliRes.writeHead(svrRes.statusCode, cliResHeaders);
+
+	cliRes.write(svrResBodyChanged);
+	cliRes.end();
+    });
+
+    console.log("a");
   });
+/*    var cliReqBody = "";
+    cliReq.on("data",function(chunk){
+	cliReqBody += chunk;
+    });
+    cliReq.on("end",function(chunk){
+	cliReqBody += chunk;
+	svrReq.write(cliReqBody);
+	svrReq.end();
+    });
+*/
   cliReq.pipe(svrReq);
   svrReq.on('error', function onSvrReqErr(err) {
     cliRes.writeHead(400, err.message, {'content-type': 'text/html'});
@@ -78,3 +108,18 @@ httpServer.on('connect', function onCliConn(cliReq, cliSoc, cliHead) {
 
 console.log('http proxy server started on port ' + HTTP_PORT +
     (PROXY_URL ? ' -> ' + PROXY_HOST + ':' + PROXY_PORT : ''));
+
+function countbytes(str) {
+    var r = 0;
+    for (var i = 0; i < str.length; i++) {
+        var c = str.charCodeAt(i);
+        // Shift_JIS: 0x0 ～ 0x80, 0xa0 , 0xa1 ～ 0xdf , 0xfd ～ 0xff
+        // Unicode : 0x0 ～ 0x80, 0xf8f0, 0xff61 ～ 0xff9f, 0xf8f1 ～ 0xf8f3
+        if ( (c >= 0x0 && c < 0x81) || (c == 0xf8f0) || (c >= 0xff61 && c < 0xffa0) || (c >= 0xf8f1 && c < 0xf8f4)) {
+            r += 1;
+        } else {
+            r += 2;
+        }
+    }
+    return r;
+}
