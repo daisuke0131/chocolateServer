@@ -41,6 +41,10 @@
             $('body').append($div);
 
             console.log(chocoid);
+            $('#'+chocoId).css('draggable','true');
+
+
+            /*
             $("#"+chocoid).draggable({
                      stop: function( event, ui ) {
                       chocoid=this.id;
@@ -54,9 +58,7 @@
                     data["y"]=ui.position.top;
                     chocolate.update(data);
           }
-
-
-          });
+          });*/
 
         }
 
@@ -158,19 +160,4 @@ $(function() {
   chocolate.setForm();
   chocolate.getList();
 
-  
-
-  $( "#kuma" ).draggable({
-          stop: function( event, ui ) {
-            id = this.id;
-            console.log(ui.position.top);
-            console.log(ui.position.left);
-            data={};
-            data["x"]=ui.position.left;
-            data["y"]=ui.position.top;
-            //chocolate.update(data);
-
-
-          }
-        });
 });
